@@ -22,10 +22,56 @@ app.post("/create-payment", async (req, res) => {
   const hyperswitch_api_key = "HYPERSWITCH_API_KEY"; // Replace with your actual API key provided by Hyperswitch
 
   const payload = {
-    amount: calculateOrderAmount(items),
-    currency: "USD",
-    customer_id: "hyperswitch_customer"
-  };
+    currency: 'USD',
+    amount: 2999,
+    confirm: false,
+    capture_method: 'automatic',
+    authentication_type: 'no_three_ds',
+    customer_id: 'hyperswitch_sdk_demo_id',
+    description: 'Joseph First Crypto',
+    shipping: {
+      address: {
+        line1: '1467',
+        line2: 'Harrison Street',
+        line3: 'Harrison Street',
+        city: 'San Fransico',
+        state: 'California',
+        zip: '94122',
+        country: 'US',
+        first_name: 'joseph',
+        last_name: 'Doe',
+      },
+      phone: {
+        number: '1234567890',
+        country_code: '+91',
+      },
+    },
+    billing: {
+      address: {
+        line1: '1467',
+        line2: 'Harrison Street',
+        line3: 'Harrison Street',
+        city: 'San Fransico',
+        state: 'California',
+        zip: '94122',
+        country: 'US',
+        first_name: 'joseph',
+        last_name: 'Doe',
+      },
+      phone: {
+        number: '1234567890',
+        country_code: '+91',
+      },
+    },
+    metadata: {
+      order_details: {
+        product_name: 'Apple iphone 15',
+        quantity: 1,
+      },
+    },
+    business_country: 'US',
+    business_label: 'default',
+  }
 
   const headers = {
     "Content-Type": "application/json",
