@@ -22,10 +22,11 @@ app.post("/create-payment", async (req, res) => {
   const hyperswitch_api_key = "HYPERSWITCH_API_KEY"; // Replace with your actual API key provided by Hyperswitch
 
   const payload = {
-    amount: calculateOrderAmount(items),
-    currency: "USD",
-    customer_id: "hyperswitch_customer"
-  };
+    currency: 'USD',
+    amount: 2999,
+    business_country: 'US',
+    business_label: 'default',
+  }
 
   const headers = {
     "Content-Type": "application/json",
